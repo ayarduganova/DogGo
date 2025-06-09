@@ -1,6 +1,5 @@
-package nen.co.doggo.dto;
+package nen.co.doggo.dto.req;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

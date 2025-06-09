@@ -1,10 +1,9 @@
 package nen.co.doggo.mapper;
 
 import lombok.RequiredArgsConstructor;
-import nen.co.doggo.dto.UserResponse;
+import nen.co.doggo.dto.resp.UserResponse;
 import nen.co.doggo.security.user.Role;
-import org.mapstruct.Mapping;
-import nen.co.doggo.dto.UserRequest;
+import nen.co.doggo.dto.req.UserRequest;
 import nen.co.doggo.entity.UserEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
