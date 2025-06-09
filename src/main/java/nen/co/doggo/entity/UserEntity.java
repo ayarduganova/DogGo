@@ -5,6 +5,7 @@ import lombok.*;
 import nen.co.doggo.security.user.Role;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Builder
@@ -42,5 +43,8 @@ public class UserEntity {
     private Set<Role> roles;
 
     private boolean isActive;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<DogEntity> dogs;
 
 }
