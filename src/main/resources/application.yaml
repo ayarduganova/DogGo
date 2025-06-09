@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: DogGo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/doggo
+    username: postgres
+    password: Medc2vsek85233
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  freemarker:
+    template-loader-path: classpath:/templates/ftl
