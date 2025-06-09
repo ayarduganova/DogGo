@@ -29,6 +29,8 @@ public class SignUpController {
                          BindingResult bindingResult,
                          Model model){
 
+        model.addAttribute("userRequest", userRequest);
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("message", bindingResult.getAllErrors().get(0).getDefaultMessage());
             return "sign/signup";
@@ -58,5 +60,6 @@ public class SignUpController {
     public String logout() {
         return "redirect:/signIn?logout";
     }
+
 }
 

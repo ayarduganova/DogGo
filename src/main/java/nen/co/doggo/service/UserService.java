@@ -22,6 +22,12 @@ public class UserService {
         UserEntity user = UserEntity.builder()
                 .username(userRequest.username())
                 .password(passwordEncoder.encode(userRequest.password()))
+                .firstName(userRequest.firstName())
+                .lastName(userRequest.lastName())
+                .email(userRequest.email())
+                .phone(userRequest.phone())
+                .birthday(userRequest.birthday())
+                .gender(userRequest.gender())
                 .roles(Set.of(Role.USER))
                 .isActive(true)
                 .build();
@@ -40,5 +46,6 @@ public class UserService {
     public void saveUser(UserEntity userEntity){
         userRepository.save(userEntity);
     }
+
 }
 

@@ -9,5 +9,7 @@ public final class AlertMessage {
     public static final String EMPTY_PASSWORD = "Пароль не может быть пустым";
     public static final String LENGTH_PASSWORD = "Пароль должен содержать минимум 6 символов";
     public static final String CHARS_PASSWORD = "Пароль должен содержать цифры, строчные и заглавные буквы";
+    public static final String PAST_DATE = "Дата рождения должна быть в прошлом";
+    public static final String PHONE_FORMAT = "Неверный формат номера телефона";
 
 }

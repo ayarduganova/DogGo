@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import nen.co.doggo.security.user.Role;
 
+import java.util.Date;
 import java.util.Set;
 
 @Builder
@@ -22,6 +23,18 @@ public class UserEntity {
     private String username;
 
     private String password;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String gender;
+
+    private Date birthday;
+
+    private String email;
+
+    private String phone;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
