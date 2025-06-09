@@ -1,12 +1,22 @@
+body {
+    font-family: Comfortaa, "Comfortaa", serif;
+}
 form {
     max-width: 400px;
     margin: 100px auto;
-    padding: 30px;
+    padding: 50px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    font-family: Arial, sans-serif;
+}
+
+.app_title{
+    margin-top: 70px;
+    text-align: center;
+    color:#964b00;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 form div {
@@ -28,17 +38,19 @@ form input[type="password"] {
 form input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color:#f0ecb4;
+    background-color:#f7f192;
     color: #964b00;;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: Comfortaa, "Comfortaa", serif;
 }
 
 form input[type="submit"]:hover {
-    background-color:#fcf75d;
+    background-color:#f2eb80;
+    font-family: Comfortaa, "Comfortaa", serif;
 }
 
 form p {
