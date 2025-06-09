@@ -1,17 +1,13 @@
 package nen.co.doggo.service;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import nen.co.doggo.dto.UserRequest;
 import nen.co.doggo.entity.UserEntity;
 import nen.co.doggo.mapper.UserMapper;
 import nen.co.doggo.repository.UserRepository;
-import nen.co.doggo.security.user.Role;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor

@@ -12,3 +12,5 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   freemarker:
     template-loader-path: classpath:/templates/ftl
+    suffix: .ftlh
+    expose-request-attributes: true

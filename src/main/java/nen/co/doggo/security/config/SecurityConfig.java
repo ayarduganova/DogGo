@@ -27,7 +27,7 @@ public class SecurityConfig {
     private final UserDetailsServiceImpl userService;
 
     private static final String[] PERMIT_ALL = {
-            "/signUp", "/signIn-error"
+            "/signUp", "/signIn-error", "/css/**", "/js/**"
     };
 
 
