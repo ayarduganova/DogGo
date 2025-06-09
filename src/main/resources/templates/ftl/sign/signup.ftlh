@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 <#import "../PARTS/common.ftlh" as c>
 
-<@c.common page="Sign up">
+<@c.common page="Sign up" css= "">
 
     <form method="post" >
         <div>Login: <input type="text" name="username"></div>

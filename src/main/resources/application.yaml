@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/doggo
     username: postgres
-    password: Medc2vsek85233
+    password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
