@@ -1,10 +1,12 @@
 package nen.co.doggo.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import nen.co.doggo.dto.UserRequest;
 import nen.co.doggo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,7 +25,15 @@ public class SignUpController {
     }
 
     @PostMapping("/signUp")
-    public String signUp(UserRequest userRequest, Model model){
+    public String signUp(@Valid UserRequest userRequest,
+                         BindingResult bindingResult,
+                         Model model){
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("message", bindingResult.getAllErrors().get(0).getDefaultMessage());
+            return "sign/signup";
+        }
+
         if (userService.exist(userRequest.username())){
             model.addAttribute("message", USER_EXIST);
             return "sign/signup";
