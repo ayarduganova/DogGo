@@ -29,9 +29,10 @@ body {
     text-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-#map-container {
+.map-container {
     display: flex;
     gap: 30px;
+    height: 600px;
 }
 
 #map {
@@ -40,8 +41,6 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     background: #eef2f6;
     border: 1px solid #e2e8f0;
-    height: max-content;
-    width: max-content;
     /* height и width не нужны — тянется за контейнером */
 }
 
