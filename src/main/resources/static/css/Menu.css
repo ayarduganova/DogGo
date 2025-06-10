@@ -28,6 +28,22 @@
     transform: scale(1.05);
 }
 
+.navbar-logo .logo{
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-text {
+    margin-left: 3px;
+    color: #964b00; /* коричневый */
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+}
+
 .navbar-menu {
     display: flex;
     gap: 20px;
