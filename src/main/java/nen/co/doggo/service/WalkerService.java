@@ -5,11 +5,18 @@ import nen.co.doggo.dto.req.ScheduleRequest;
 import nen.co.doggo.dto.req.WalkerRequest;
 import nen.co.doggo.entity.ScheduleEntity;
 import nen.co.doggo.entity.UserEntity;
+import nen.co.doggo.entity.WalkerEntity;
+import nen.co.doggo.entity.WalkerStatus;
 import nen.co.doggo.mapper.ScheduleMapper;
 import nen.co.doggo.mapper.WalkerMapper;
 import nen.co.doggo.repository.ScheduleRepository;
 import nen.co.doggo.repository.WalkerRepository;
+import nen.co.doggo.security.user.Role;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +26,7 @@ public class WalkerService {
     private final ScheduleMapper scheduleMapper;
     private final WalkerRepository walkerRepository;
     private final ScheduleRepository scheduleRepository;
+    private final UserService userService;
 
     public void sendWalkerRequest(UserEntity user, WalkerRequest walkerRequest, ScheduleRequest scheduleRequest) {
 
@@ -28,4 +36,37 @@ public class WalkerService {
         walkerRepository.save(walkerMapper.toEntity(walkerRequest, schedule, user));
     }
 
+    public List<WalkerEntity> getApprovedRequests() {
+        List<WalkerEntity> walkerEntities = walkerRepository.findAll();
+        List<WalkerEntity> approvedRequests = new ArrayList<>();
+        for (WalkerEntity walkerEntity : walkerEntities) {
+            if(walkerEntity.getStatus().equals(WalkerStatus.APPROVED)) {
+                approvedRequests.add(walkerEntity);
+            }
+        }
+        return approvedRequests;
+    }
+
+    public HashMap<WalkerEntity, UserEntity> getRequests() {
+        List<WalkerEntity> walkerEntities = walkerRepository.findAll();
+        HashMap<WalkerEntity, UserEntity> requests = new HashMap<>();
+        for (WalkerEntity walkerEntity : walkerEntities) {
+            if(walkerEntity.getStatus().equals(WalkerStatus.UNDER_REVIEW)) {
+                requests.put(walkerEntity, walkerEntity.getUser());
+            }
+        }
+        return requests;
+    }
+
+    public void approveForm(Long walkerId) {
+        WalkerEntity walker = walkerRepository.getWalkerEntityById(walkerId).get();
+        userService.addRole(walker.getUser(), Role.WALKER);
+        walker.setStatus(WalkerStatus.APPROVED);
+        walkerRepository.save(walker);
+    }
+
+    public void rejectForm(Long walkerId) {
+        WalkerEntity walker = walkerRepository.getWalkerEntityById(walkerId).get();
+        walkerRepository.delete(walker);
+    }
 }
