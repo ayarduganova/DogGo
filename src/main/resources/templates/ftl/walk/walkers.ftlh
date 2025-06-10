@@ -3,7 +3,7 @@
 <@m.common page="Главная" css="/css/Walker.css">
     <div class="wrapper">
         <div class="modal" id="modal">
-            <form method="post">
+            <form method="post" action="/walkers">
                 <div class="modal_box">
                     <div class="modal_title">Отправьте заявку, чтобы стать выгульщиком</div>
                     <div class="modal_info">
@@ -49,12 +49,13 @@
                             <label><input type="time" name="sundayFrom" required/></label>-
                             <label><input type="time" name="sundayTo" required/></label>
                         </p>
-
                     </div>
+
                     <div class="modal_bottom">
                         <button type="submit" class="btn-send">Отправить</button>
                         <a href="#" class="btn btn--close" id="btn_close">Закрыть</a>
                     </div>
+
                 </div>
             </form>
         </div>
@@ -63,7 +64,6 @@
 
         <#if walkers?size != 0>
             <#list walkers as walker>
-                <form method="post">
                     <div class="walker">
                         <p>Имя: ${walker.user.firstName}</p>
                         <p>Фамилия: ${walker.user.lastName}</p>
@@ -132,8 +132,43 @@
                             </p>
                         </div>
 
+                        <button class="btn-book-walk" data-walker-id="${walker.id}">Забронировать прогулку</button>
+
+                                    <!-- Форма бронирования (изначально скрыта) -->
+                        <div class="booking-form" id="booking-form-${walker.id}">
+                             <form method="post" action="/walkers/book">
+                                    <h3>Забронировать прогулку с ${walker.user.firstName}</h3>
+                                            <#if user.dogs?has_content>
+                                                <label>Выберите собаку:</label>
+                                                <select name="dogId" required>
+                                                    <#list user.dogs as dog>
+                                                        <option value="${dog.id}">${dog.name}</option>
+                                                    </#list>
+                                                </select>
+                                            <#else>
+                                                <div class="alert alert-warning">
+                                                    У вас нет ни одной собаки. <a href="/profile">Добавьте собаку в профиле</a>.
+                                                </div>
+                                            </#if>
+
+                                            <div><label>Дата и время:</label>
+                                            <input type="datetime-local" name="walkDateTime" required>
+                                            </div>
+
+                                            <div>
+                                            <label>Длительность (час):</label>
+                                            <input type="number" name="duration" required>
+                                            </div>
+
+                                            <input type="hidden" name="walkerId" value="${walker.id}">
+
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn-submit">Подтвердить</button>
+                                                <button type="button" class="btn-cancel" data-walker-id="${walker.id}">Отмена</button>
+                                            </div>
+                             </form>
+                        </div>
                     </div>
-                </form>
             </#list>
         <#else>
             <p>Список выгульщиков пуст</p>
@@ -142,4 +177,25 @@
     </div>
     <script src="/js/walkers.js" type="text/javascript"></script>
     <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<#--    <script>-->
+<#--        document.addEventListener('DOMContentLoaded', function() {-->
+<#--            // Обработчики для кнопок "Забронировать прогулку"-->
+<#--            document.querySelectorAll('.btn-book-walk').forEach(button => {-->
+<#--                button.addEventListener('click', function() {-->
+<#--                    const walkerId = this.getAttribute('data-walker-id');-->
+<#--                    document.getElementById(`booking-form-` + walkerId).style.display = 'block';-->
+<#--                    this.style.display = 'none';-->
+<#--                });-->
+<#--            });-->
+
+<#--            // Обработчики для кнопок "Отмена"-->
+<#--            document.querySelectorAll('.btn-cancel').forEach(button => {-->
+<#--                button.addEventListener('click', function() {-->
+<#--                    const walkerId = this.getAttribute('data-walker-id');-->
+<#--                    document.getElementById(`booking-form-` + walkerId).style.display = 'none';-->
+<#--                    document.querySelector(`.btn-book-walk[data-walker-id=${walkerId}]`).style.display = 'block';-->
+<#--                });-->
+<#--            });-->
+<#--        });-->
+<#--    </script>-->
 </@m.common>
