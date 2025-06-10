@@ -30,8 +30,6 @@ public class DogWalkersController {
         model.addAttribute("user", user.getUser());
         model.addAttribute("walkers", walkerService.getApprovedRequests());
 
-        System.out.println(user.getUser().getDogs());
-
         return "walk/walkers";
     }
 
@@ -50,9 +48,7 @@ public class DogWalkersController {
                            @RequestParam Long walkerId,
                            @RequestParam Long dogId,
                            WalkRequestReq walkRequestReq) {
-        System.out.println("before book");
         walkerService.bookWalk(user.getUser(), walkerId, dogId, walkRequestReq);
-        System.out.println("after book");
         return "redirect:/walkers";
     }
 

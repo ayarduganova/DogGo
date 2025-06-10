@@ -113,4 +113,20 @@ public class WalkerService {
     public List<WalkRequestEntity> getWalkRequestsForUser(Long userId) {
         return walkRequestRepository.findByUserId(userId);
     }
+
+    public WalkRequestEntity getWalkRequestById(Long id) {
+        return walkRequestRepository.getWalkRequestEntityById(id).get();
+    }
+
+    public void approveStatus(Long requestId) {
+        WalkRequestEntity walkRequestEntity = getWalkRequestById(requestId);
+        walkRequestEntity.setStatus(WalkRequestStatus.APPROVED);
+        walkRequestRepository.save(walkRequestEntity);
+    }
+
+    public void rejectStatus(Long requestId) {
+        WalkRequestEntity walkRequestEntity = getWalkRequestById(requestId);
+        walkRequestEntity.setStatus(WalkRequestStatus.REJECTED);
+        walkRequestRepository.save(walkRequestEntity);
+    }
 }

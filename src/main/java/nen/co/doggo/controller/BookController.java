@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import nen.co.doggo.entity.WalkRequestEntity;
 import nen.co.doggo.security.user.UserDetailsImpl;
 import nen.co.doggo.service.WalkerService;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
