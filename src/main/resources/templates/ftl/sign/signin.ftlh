@@ -4,7 +4,7 @@
     <div class="app_title">DogGo</div>
     <form method="post">
         <div>Логин <input type="text" name="username"></div>
-        <div>Пароль <input type="text" name="password"></div>
+        <div>Пароль <input type="password" name="password"></div>
         <input type="submit" value="Войти">
         <p>${message!}</p>
         <a href="./signUp">Зарегистрироваться</a>

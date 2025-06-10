@@ -1,5 +1,6 @@
 <#import "../PARTS/common.ftlh" as m>
-<@m.common page="main" css=" ">
+<#include "../PARTS/menu.ftl">
+<@m.common page="main" css="/css/Walker.css">
     <div class="wrapper">
         <div class="modal" id="modal">
             <form method="post">
@@ -58,7 +59,7 @@
             </form>
         </div>
 
-        <a href="#" class="btn" id="btn">стать выгульщиком</a>
+        <a href="#" class="btn" id="btn">Cтать выгульщиком</a>
 
         <#if walkers?size != 0>
             <#list walkers as walker>
@@ -139,5 +140,6 @@
         </#if>
 
     </div>
-
+    <script src="/js/walkers.js" type="text/javascript"></script>
+    <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </@m.common>
