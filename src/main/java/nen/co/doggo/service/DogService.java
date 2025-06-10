@@ -1,7 +1,7 @@
 package nen.co.doggo.service;
 
 import lombok.RequiredArgsConstructor;
-import nen.co.doggo.dto.DogRequest;
+import nen.co.doggo.dto.req.DogRequest;
 import nen.co.doggo.entity.DogEntity;
 import nen.co.doggo.entity.UserEntity;
 import nen.co.doggo.mapper.DogMapper;

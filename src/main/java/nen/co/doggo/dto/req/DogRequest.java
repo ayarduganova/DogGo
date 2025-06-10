@@ -1,4 +1,4 @@
-package nen.co.doggo.dto;
+package nen.co.doggo.dto.req;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

@@ -1,4 +1,4 @@
-package nen.co.doggo.dto;
+package nen.co.doggo.dto.resp;
 
 public record DogResponse(
         String name,

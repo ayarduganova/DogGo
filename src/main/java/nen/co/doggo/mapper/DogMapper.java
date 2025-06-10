@@ -1,8 +1,8 @@
 package nen.co.doggo.mapper;
 
 import lombok.RequiredArgsConstructor;
-import nen.co.doggo.dto.DogRequest;
-import nen.co.doggo.dto.DogResponse;
+import nen.co.doggo.dto.req.DogRequest;
+import nen.co.doggo.dto.resp.DogResponse;
 import nen.co.doggo.entity.DogEntity;
 import org.springframework.stereotype.Component;
 

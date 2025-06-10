@@ -2,8 +2,8 @@ package nen.co.doggo.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import nen.co.doggo.dto.DogRequest;
-import nen.co.doggo.dto.UserRequest;
+import nen.co.doggo.dto.req.DogRequest;
+import nen.co.doggo.dto.req.UserRequest;
 import nen.co.doggo.security.user.UserDetailsImpl;
 import nen.co.doggo.service.DogService;
 import nen.co.doggo.service.UserService;

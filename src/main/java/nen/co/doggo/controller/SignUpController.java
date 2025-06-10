@@ -2,7 +2,7 @@ package nen.co.doggo.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import nen.co.doggo.dto.UserRequest;
+import nen.co.doggo.dto.req.UserRequest;
 import nen.co.doggo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
