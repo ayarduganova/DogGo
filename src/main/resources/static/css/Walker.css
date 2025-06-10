@@ -1,5 +1,7 @@
 /* Walker.css - обновлённые стили модалки и страницы */
-
+body{
+    font-family: Comfortaa, "Comfortaa", serif;
+}
 /* Блокировка прокрутки при открытой модалке */
 body.lock {
     overflow: hidden;
@@ -51,11 +53,12 @@ body.lock {
     font-size: 16px;
     color: #2d3748;
     margin-bottom: 30px;
+
 }
 
 .modal_info p {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     margin: 10px 0;
 }
@@ -68,7 +71,7 @@ body.lock {
 
 /* Поля ввода */
 .modal_info input {
-    width: calc(100% - 140px);
+    width: 100%;
     padding: 6px 12px;
     border: 2px solid #634c36;
     border-radius: 6px;
@@ -91,15 +94,16 @@ body.lock {
 
 /* Кнопка отправить */
 .btn-send {
-    background-color: #634c36;
-    color: #f7f192;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
+    background: #f7f192;
+    color: #634c36;
+    text-decoration: none;
     font-family: 'Comfortaa', sans-serif;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 10px 20px;
+    border: 1px solid #634c36;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 10px;
 }
 
 .btn-send:hover {
@@ -114,7 +118,7 @@ body.lock {
     font-family: 'Comfortaa', sans-serif;
     font-weight: bold;
     padding: 10px 20px;
-    border: 2px solid #634c36;
+    border: 1px solid #634c36;
     border-radius: 6px;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -132,7 +136,7 @@ body.lock {
     width: 60%;
     min-height: 100vh;
     margin: 0 auto;
-    background-color: #ebe9ce;
+    background-color: #f7f7f7;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -159,6 +163,7 @@ body.lock {
     color: #634c36;
     flex: 0 0 120px;
     font-weight: 600;
+    text-align: center;
 }
 
 /* Кнопка «Стать выгульщиком» */
@@ -168,7 +173,6 @@ body.lock {
     margin: 10px 0;
     background-color: #f7f192;
     color: #634c36;
-    border: 2px solid #634c36;
     border-radius: 6px;
     font-family: 'Comfortaa', sans-serif;
     font-weight: 700;

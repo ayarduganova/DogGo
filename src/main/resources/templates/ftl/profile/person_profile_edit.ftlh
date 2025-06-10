@@ -1,7 +1,7 @@
 <#ftl encoding="UTF-8"/>
 <#import "../PARTS/common.ftlh" as c>
 <#include "../PARTS/menu.ftl">
-<@c.common page="main" css="/css/ProfilePageStyle.css">
+<@c.common page="Редактирование профиля" css="/css/ProfilePageStyle.css">
     <div class="wrapper">
         <form method="post">
             <div class="title">Это вы! И это прекрасно)</div>

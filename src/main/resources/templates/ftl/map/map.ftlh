@@ -1,7 +1,7 @@
 <#ftl encoding="UTF-8"/>
 <#import "../PARTS/common.ftlh" as m>
 <#include "../PARTS/menu.ftl">
-<@m.common page="main" css="/css/map.css">
+<@m.common page="Карта" css="/css/map.css">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=a2737b91-85ee-4441-befd-2436997ef8b8&lang=ru_RU" type="text/javascript">
     </script>
     <script src="../js/map.js" type="text/javascript"></script>
