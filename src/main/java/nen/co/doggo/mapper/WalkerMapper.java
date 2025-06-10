@@ -5,6 +5,7 @@ import nen.co.doggo.dto.req.WalkerRequest;
 import nen.co.doggo.entity.ScheduleEntity;
 import nen.co.doggo.entity.UserEntity;
 import nen.co.doggo.entity.WalkerEntity;
+import nen.co.doggo.entity.WalkerStatus;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,6 +19,7 @@ public class WalkerMapper {
                 .workArea(walkerRequest.workArea())
                 .price(walkerRequest.price())
                 .schedule(schedule)
+                .status(WalkerStatus.UNDER_REVIEW)
                 .build();
 
         user.setWalker(walker);

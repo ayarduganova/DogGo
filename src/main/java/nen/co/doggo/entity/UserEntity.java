@@ -44,6 +44,8 @@ public class UserEntity {
 
     private boolean isActive;
 
+    private boolean isAdmin;
+
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<DogEntity> dogs;
 

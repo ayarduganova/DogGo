@@ -24,6 +24,9 @@ public class WalkerEntity {
     private String workArea;
     private Integer price;
 
+    @Enumerated(EnumType.STRING)
+    private WalkerStatus status;
+
     @OneToOne
     @JoinColumn(name = "schedule_id")
     private ScheduleEntity schedule;

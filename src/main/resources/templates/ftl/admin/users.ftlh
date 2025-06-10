@@ -1,22 +1,33 @@
 <#ftl encoding="UTF-8"/>
-<#import "../PARTS/common.ftlh" as c>
-<@c.common page="admin">
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <#list users! as user>
+<#import "../PARTS/common.ftlh" as m>
+<@m.common page="admin" css="/css/admin.css" >
+    <a class="req" href="../admin/requests">Запросы</a>
+
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
             <tr>
-                <td>${user.username}</td>
-                <td><#list user.roles as role>${role}<#sep>, </#list></td>
-                <td><a href="./user/${user.id}">edit</a></td>
+                <th>Имя пользователя</th>
+                <th>Роли</th>
+                <th></th>
             </tr>
-        </#list>
-        </tbody>
-    </table>
-</@c.common>
+            </thead>
+            <tbody>
+            <#list users! as user>
+                <tr class="${user.active?string('', 'inactive')}">
+                    <td>${user.username}</td>
+                    <td>
+                        <#if user.active>
+                            <#list user.roles as role>${role}<#sep>, </#list>
+                        <#else>
+                            пользователь заблокирован
+                        </#if>
+                    </td>
+                    <td><a href="./user/${user.id}">изменить</a></td>
+                </tr>
+            </#list>
+            </tbody>
+        </table>
+    </div>
+
+</@m.common>
