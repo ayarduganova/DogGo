@@ -18,17 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DogWalkersController {
 
     private final WalkerService walkerService;
-//    private final UserService userService;
-//    private final PostService postService;
 
     @GetMapping
     public String getWalkers(@AuthenticationPrincipal UserDetailsImpl user, Model model) {
 
         model.addAttribute("user", user.getUser());
-//        model.addAttribute("current_user", user.getUser());
-//        model.addAttribute("service", userService);
-//        model.addAttribute("role", Role.WALKER);
-//        model.addAttribute("posts", postService.getAll());
+        model.addAttribute("walkers", walkerService.getApprovedRequests());
 
         return "walk/walkers";
     }
@@ -42,25 +37,5 @@ public class DogWalkersController {
 
         return "redirect:/walkers";
     }
-
-//    @GetMapping("/addPost")
-//    @PreAuthorize("hasAuthority('WALKER')")
-//    public String getViewAddPost(@AuthenticationPrincipal UserDetailsImpl user, Model model) {
-//
-//        model.addAttribute("current_user", user.getUser());
-//        model.addAttribute("posts", postService.getAll());
-//
-//        return "walkers/post_add";
-//    }
-//
-//    @PostMapping("/addPost")
-//    @PreAuthorize("hasAuthority('WALKER')")
-//    public String addPost(@AuthenticationPrincipal UserDetailsImpl user,
-//                          PostRequest postRequest) {
-//
-//        postService.addPost(user.getUser(), postRequest);
-//
-//        return "redirect:/walkers";
-//    }
 
 }

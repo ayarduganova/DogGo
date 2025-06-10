@@ -14,6 +14,7 @@ import nen.co.doggo.repository.WalkerRepository;
 import nen.co.doggo.security.user.Role;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,6 +34,17 @@ public class WalkerService {
         schedule = scheduleRepository.save(schedule);
 
         walkerRepository.save(walkerMapper.toEntity(walkerRequest, schedule, user));
+    }
+
+    public List<WalkerEntity> getApprovedRequests() {
+        List<WalkerEntity> walkerEntities = walkerRepository.findAll();
+        List<WalkerEntity> approvedRequests = new ArrayList<>();
+        for (WalkerEntity walkerEntity : walkerEntities) {
+            if(walkerEntity.getStatus().equals(WalkerStatus.APPROVED)) {
+                approvedRequests.add(walkerEntity);
+            }
+        }
+        return approvedRequests;
     }
 
     public HashMap<WalkerEntity, UserEntity> getRequests() {
