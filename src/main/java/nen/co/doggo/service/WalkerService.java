@@ -28,6 +28,7 @@ public class WalkerService {
     private final ScheduleRepository scheduleRepository;
     private final UserService userService;
 
+
     public void sendWalkerRequest(UserEntity user, WalkerRequest walkerRequest, ScheduleRequest scheduleRequest) {
 
         ScheduleEntity schedule = scheduleMapper.toEntity(scheduleRequest);
@@ -68,5 +69,9 @@ public class WalkerService {
     public void rejectForm(Long walkerId) {
         WalkerEntity walker = walkerRepository.getWalkerEntityById(walkerId).get();
         walkerRepository.delete(walker);
+    }
+
+    public WalkerEntity getWalkerByUser(UserEntity user) {
+        return walkerRepository.getWalkerEntityByUser(user).get();
     }
 }

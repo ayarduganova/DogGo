@@ -1,6 +1,6 @@
 <#ftl encoding="UTF-8"/>
 <#import "../PARTS/common.ftlh" as c>
-<@c.common page="main">
+<@c.common page="main" css=" ">
     <div class="wrapper">
             <div class="info">
                 <p><strong>Имя: </strong>${user.firstName}</p>
