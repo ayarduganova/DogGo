@@ -29,6 +29,9 @@ public class DogService {
     public void addDog(UserEntity user, DogRequest dogRequest) {
         DogEntity dogEntity = dogMapper.toEntity(dogRequest);
         dogEntity.setOwner(user);
+        List<DogEntity> dogs = user.getDogs();
+        dogs.add(dogEntity);
+        user.setDogs(dogs);
         dogRepository.save(dogEntity);
     }
 
