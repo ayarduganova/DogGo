@@ -12,7 +12,7 @@
                     <div class="input-box"><input type="date" name="birthday" placeholder="Дата рождения" required></div>
                     <div class="input-box"><input type="email" name="email" placeholder="Почта" required></div>
                     <div class="input-box"><input type="tel" name="phone" placeholder="Номер телефона" required></div>
-                    <div class="input-box"><input type="text" name="text" placeholder="Логин" required></div>
+                    <div class="input-box"><input type="text" name="username" placeholder="Логин" required></div>
                     <div class="input-box"><input type="password" name="password" placeholder="Пароль" required></div>
                 </div>
         </div>
